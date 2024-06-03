@@ -1,0 +1,25 @@
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@main
+      with:
+        ref: ${{ github.head_ref }}
+    - name: python
+      uses: actions/setup-python@main
+      with:
+        # pulls latest version of python, alternatively specify exact version (i.e. 3.8 -> no quotes)
+        python-version: '3.9'
+    - name: install
+      run: |
+        pip install -r requirements.txt
+    - name: Lint with flake8
+      run: |
+        # fail if there are any flake8 errors
+        flake8 . --count --max-complexity=15 --max-line-length=127 --statistics
