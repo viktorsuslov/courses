@@ -18,7 +18,6 @@ y = torch.sin(2 * torch.pi * X) + 0.1 * torch.rand(X.size())
 dataset = CustomDataset(X, y)
 dataloader = DataLoader(dataset, batch_size=10)
 
-
 for batch in dataloader:
     data, labels = batch
     print("Batch data shape:", data.shape)
