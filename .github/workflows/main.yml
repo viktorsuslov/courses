@@ -16,9 +16,6 @@ jobs:
       with:
         # pulls latest version of python, alternatively specify exact version (i.e. 3.8 -> no quotes)
         python-version: '3.9'
-    - name: install
-      run: |
-        pip install -r requirements.txt
     - name: Lint with flake8
       run: |
         # fail if there are any flake8 errors
