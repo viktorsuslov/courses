@@ -1,7 +1,6 @@
 import torch
 from torch.utils.data import Dataset, DataLoader
 
-
 class CustomDataset(Dataset):
     
     def __init__(self, X, y):
@@ -13,7 +12,6 @@ class CustomDataset(Dataset):
     
     def __getitem__(self, idx):
         return self.X[idx], self.y[idx]
-
 
 X = torch.linspace(0, 1, 100).view(-1, 1)
 y = torch.sin(2 * torch.pi * X) + 0.1 * torch.rand(X.size())
